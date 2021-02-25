@@ -73,11 +73,12 @@ SOCKET* TCPSocket::Accept(sockaddr_in client_addr)
 }
 
 int TCPSocket::Send(const void* inData, int inLen) {
-	int bytesSentCount = send(client_socket, static_cast<const char*>(inData), inLen, 0);
+	int bytesSentCount = send(my_socket, static_cast<const char*>(inData), inLen, 0);
 	if (bytesSentCount < 0)
 	{
-		printf("TCPSocket::Send");
-		return -WSAGetLastError();
+		int err = -WSAGetLastError();
+		std::cout << "TCPSocket::Send" << err << "\n";
+		return err;
 	}
 	return bytesSentCount;
 }
