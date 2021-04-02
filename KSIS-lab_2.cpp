@@ -89,7 +89,8 @@ int Choose_Menu() {
 		/*std::string LastBytes;
 		std::cin >> LastBytes;*/
 		//strcat_s(addr, LastBytes.c_str());
-		char addr[14] = "127.0.0.1";
+		//char addr[14] = "127.0.0.1";
+		char addr[16] = "185.152.139.93";
 		SendFile(Filename, addr);
 		break; }
 	case 3: {
